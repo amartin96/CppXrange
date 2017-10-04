@@ -11,9 +11,10 @@ public:
     class iterator;
     class end_iterator;
 
-    xrange(Type start, Type end, Type step) : m_start(start), m_end(end), m_step(step) {}
-    iterator begin() { return iterator(m_start, m_step); }
-    end_iterator end() { return end_iterator(m_end); }
+    xrange(Type start, Type end, Type step = 1) : m_start(start), m_end(end), m_step(step) {}
+    iterator begin()    { return iterator(m_start, m_step); }
+    iterator end()      { return iterator(m_end, 0); }
+    //end_iterator end() { return end_iterator(m_end); }
 };
 
 template<typename Type> class xrange<Type>::iterator
